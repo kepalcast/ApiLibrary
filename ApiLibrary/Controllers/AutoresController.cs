@@ -2,6 +2,7 @@
 using ApiLibrary.Models.Dto;
 using ApiLibrary.Repository.IRepository;
 using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
@@ -10,6 +11,7 @@ namespace ApiLibrary.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class AutoresController : ControllerBase
     {
         private readonly IAutoresRepository _autoresRepository;

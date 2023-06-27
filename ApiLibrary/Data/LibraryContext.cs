@@ -13,6 +13,9 @@ namespace ApiLibrary.Data
         public DbSet<Autores> autores { get; set; }
         public DbSet<Libros> libros { get; set; }
 
+        public DbSet<Users> users { get; set; }
+        public object Users { get; internal set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Autores>().HasData(
@@ -42,6 +45,21 @@ namespace ApiLibrary.Data
                     LibName = "180 dias",
                     numPaginas = 500,
                     AutoresId = 1
+                });
+            modelBuilder.Entity<Users>().HasData(
+                new Users()
+                {
+                    Id = 1,
+                    Name = "administrator",
+                    Password = "123",
+                    Role = "Administrador"
+                },
+                new Users()
+                {
+                Id = 2,
+                Name = "Teacher",
+                Password = "hola",
+                Role = "Docente" 
                 });
         }
 
